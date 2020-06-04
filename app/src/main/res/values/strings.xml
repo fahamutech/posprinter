@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Print</string>
+
+<string-array name="spinner_item" >
+    <item >VANSTONE V32</item>
+    <item >VANSTONE V32P</item>
+    <item >VANSTONE V32G</item>
+    <item >VANSTONE V10</item>
+    <item >VANSTONE V80</item>
+</string-array>
+<string-array name="spinner_sku_item" >
+    <item >0018000002</item>
+    <item >0018000015</item>
+    <item >0018000028</item>
+    <item >0018000030</item>
+    <item >0018000043</item>
+</string-array>
+</resources>

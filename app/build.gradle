@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
+
+    defaultConfig {
+        applicationId "com.vanstone.androiddemo"
+        minSdkVersion 15
+        targetSdkVersion 23
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/AppSdkAidl.jar')
+    compile files('libs/vanstoneSdkClient-noemv.jar')
+//    compile files('libs/Common.jar')
+//    compile files('libs/EMV.jar')
+//    compile files('libs/PayPass.jar')
+//    compile files('libs/PayWave.jar')
+
+}

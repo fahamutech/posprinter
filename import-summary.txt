@@ -1,0 +1,51 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* proguard-project.txt
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => app\src\main\AndroidManifest.xml
+* assets\ => app\src\main\assets
+* libs\AppSdkAidl.jar => app\libs\AppSdkAidl.jar
+* libs\arm64-v8a\libA90JavahCore.so => app\src\main\jniLibs\arm64-v8a\libA90JavahCore.so
+* libs\arm64-v8a\libCommon.so => app\src\main\jniLibs\arm64-v8a\libCommon.so
+* libs\arm64-v8a\libEMV.so => app\src\main\jniLibs\arm64-v8a\libEMV.so
+* libs\arm64-v8a\libPayPass.so => app\src\main\jniLibs\arm64-v8a\libPayPass.so
+* libs\arm64-v8a\libPayWave.so => app\src\main\jniLibs\arm64-v8a\libPayWave.so
+* libs\armeabi\libA90JavahCore.so => app\src\main\jniLibs\armeabi\libA90JavahCore.so
+* libs\armeabi\libCommon.so => app\src\main\jniLibs\armeabi\libCommon.so
+* libs\armeabi\libEMV.so => app\src\main\jniLibs\armeabi\libEMV.so
+* libs\armeabi\libPayPass.so => app\src\main\jniLibs\armeabi\libPayPass.so
+* libs\armeabi\libPayWave.so => app\src\main\jniLibs\armeabi\libPayWave.so
+* libs\Common.jar => app\libs\Common.jar
+* libs\EMV.jar => app\libs\EMV.jar
+* libs\PayPass.jar => app\libs\PayPass.jar
+* libs\PayWave.jar => app\libs\PayWave.jar
+* libs\vanstoneSdkClient-noemv.jar => app\libs\vanstoneSdkClient-noemv.jar
+* res\ => app\src\main\res\
+* src\ => app\src\main\java\
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
