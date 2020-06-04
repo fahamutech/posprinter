@@ -1,13 +1,15 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
 
     defaultConfig {
-        applicationId "com.vanstone.androiddemo"
+        // applicationId "com.fahamutech.jzv3printer"
         minSdkVersion 15
         targetSdkVersion 29
+        versionCode 1
+        versionName '1.0'
     }
 
     buildTypes {
