@@ -32,33 +32,43 @@ public class JZV3Printer {
             int ret = PrinterApi.PrnOpen_Api("", context);
             if (ret == 0) {
                 jzv3PrinterCallback.onReadToPrint();
-                PrintData(context);
+                PrinterError printerError = PrintData(context);
+                if (printerError == null) {
+                    jzv3PrinterCallback.onSuccess();
+                } else {
+                    jzv3PrinterCallback.onError(printerError);
+                }
+            } else {
+                jzv3PrinterCallback.onError(new PrinterError("Printer not working", -2));
             }
         }
     }
 
-    private static int PrintData(Context context) {
+    private static PrinterError PrintData(Context context) {
         int ret;
-        String Buf = null;
-        while (true) {
-            ret = PrinterApi.PrnStart_Api();
-            // Log.d("aabb", "PrnStart_Api:" + ret);
-            if (ret == 2) {
-                Buf = "Return:" + ret + "	paper is not enough";
-                Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
-            } else if (ret == 3) {
-                Buf = "Return:" + ret + "	too hot";
-                Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
-            } else if (ret == 4) {
-                Buf = "Return:" + ret + "	PLS put it back\nPress any key to reprint";
-                Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
-            } else if (ret == 0) {
-                return 0;
-            }
-            //else {
-            return -1;
-            // }
+        String Buf;
+//        while (true) {
+        ret = PrinterApi.PrnStart_Api();
+        // Log.d("aabb", "PrnStart_Api:" + ret);
+        if (ret == 2) {
+            Buf = "Printer paper is not enough";
+            Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
+            return new PrinterError(Buf, ret);
+        } else if (ret == 3) {
+            Buf = "Printer is too hot";
+            Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
+            return new PrinterError(Buf, ret);
+        } else if (ret == 4) {
+            Buf = "Return:" + ret + "	PLS put it back\nPress any key to reprint";
+            Toast.makeText(context, Buf, Toast.LENGTH_LONG).show();
+            return new PrinterError(Buf, ret);
+        } else if (ret == 0) {
+            return null;
         }
+        //else {
+        return null;
+        // }
+        // }
     }
 
     public void init(final Context context) {
